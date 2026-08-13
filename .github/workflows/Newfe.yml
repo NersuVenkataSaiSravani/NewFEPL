@@ -22,7 +22,7 @@ jobs:
                 echo "Front End Files Are Found"
 
           - name: Upload Website
-            uses: actions/upload-pages-artifacts@v4
+            uses: actions/upload-pages-artifact@v4
             with: 
                 path: .
 
