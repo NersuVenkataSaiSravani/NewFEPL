@@ -1,0 +1,21 @@
+name: FE Deployment to EC2
+
+on:
+  workflow_dispatch:
+
+jobs:
+   deploy:
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: Deploying to EC2
+           uses: appleboy/ssh-action@v1.0.3
+           with:
+               host: ${{ secrets.EC2_HOST }}
+               user: ubuntu
+               key: ${{ secrets.EC2_SSH_KEY }}
+               script: |
+                    cd ~/FE
+                    git pull origin main
+                    echo "Deployed Successfully"
+  
