@@ -17,7 +17,7 @@ jobs:
             uses: actions/checkout@v4
 
           - name: Setup Pages
-            uses: actions/configure-pages@v5
+            uses: actions/configure-pages@v5  #prepares GitHub Pages for the deployment.GitHub, I'm preparing a website that I want to deploy using Pages
 
           - name: Check Files
             run: |
@@ -25,9 +25,9 @@ jobs:
                 echo "Front End Files Are Found"
 
           - name: Upload Website
-            uses: actions/upload-pages-artifact@v4
+            uses: actions/upload-pages-artifact@v4 #packaged as a Pages artifact.
             with: 
-                path: .
+                path: .  #Take the website files from the current directory and upload them as the Pages artifact.
 
    deploy:
      needs: build
@@ -35,11 +35,11 @@ jobs:
 
      environment:
         name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}
+        url: ${{ steps.deployment.outputs.page_url }} #This is used to display the URL of your deployed website
 
      steps:
         - name: Deploy to Github Pages
-          id: Deployment
+          id: deployment   #actual deployment.takes the Pages artifact prepared by the build job and publishes it to GitHub Pages.So this is where your website becomes available online.
           uses: actions/deploy-pages@v4
         
      
