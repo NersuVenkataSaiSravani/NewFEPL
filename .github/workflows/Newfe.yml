@@ -41,9 +41,3 @@ jobs:
         - name: Deploy to Github Pages
           id: deployment   #actual deployment.takes the Pages artifact prepared by the build job and publishes it to GitHub Pages.So this is where your website becomes available online.
           uses: actions/deploy-pages@v4
-        
-     
-   
-         
-    
-
